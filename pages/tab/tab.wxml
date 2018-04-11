@@ -1,0 +1,8 @@
+<template name="nav">
+  <view class="nav_container">
+    <navigator wx:for="{{navbar}}" wx:key="{{index}}" data-idx="{{index}}" url="{{item.url}}" open-type="redirect" class="function-text {{currentTab==index ? 'present' : ''}}">
+      <image src='{{item.img}}' style='width:25px;height:25px'></image>
+      <text>\n{{item.name}}</text>
+    </navigator>
+  </view>
+</template>

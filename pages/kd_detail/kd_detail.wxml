@@ -1,0 +1,216 @@
+<!--pages/kd_detail.wxml-->
+<import src="../tab/tab.wxml"/>
+<template is="nav" data="{{navbar,currentTab}}"></template> 
+<view class='details-header'>
+  <!-- 店铺视频 -->
+  <view class='detail-video1'>
+    <video  class='video-img' src='https://v.qq.com/x/page/e056197d21r.html' poster='../img/171204xl846rd6qjasl21r.jpg' preload="auto" controls='true'></video> 
+  </view>
+  <!-- 店铺详细信息 -->
+  <view class='detail-title'>
+    <view class='detail-row1'>
+      <text class='detail-row1-left'>{{storeName}}</text>
+      <text class='detail-row1-right'>关注157</text>
+    </view>
+    <view class='detail-row2'>
+      <text class='open-time'>营业时间：9:00-23:00</text>
+      <view class='detail-row2-right'>
+        <text class='transfer'>转发:{{count.zfCount}}</text>
+        <text class='browser'>浏览:{{count.llCount}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 店铺相册 -->
+  <view class='store-album'>
+    <view class='iconfont icon-store-album'></view>
+    <navigator class='album-list'>
+      <view>
+        <image src='../img/6ea94d850ffc39203129c5003d8e6076.jpg' style="width:45px;height:45px"></image> 
+        <image src='../img/35dacd8c4f706cbcda686785abe23db2.jpg' style="width:45px;height:45px"></image> 
+        <image src='../img/004814q46eg3ttteomtcg2.jpg' style="width:45px;height:45px"></image>
+      </view>
+      <view class='iconfont icon-store-more'>
+      </view>
+    </navigator> 
+  </view>
+  <!-- 地理定位 -->
+  <view class='send-address'>
+    <view class='iconfont icon-store-location'></view>
+    <navigator class='user-location'>
+      <view class='location-detail'>
+        <text>{{location.address}}\n</text>
+        <text>{{location.distance}}</text>
+      </view>
+    </navigator>
+    <view class='location-btn'>
+      <navigator class='iconfont icon-store-car'>
+      </navigator>
+      <navigator class='iconfont icon-store-phone'>
+      </navigator>
+    </view>
+  </view>
+</view>
+<!-- 打折链接 -->
+<view class='details-info'>
+  <view class='discount-container'>
+    <image src='../img/shop_details_counpon.png'></image>
+    <navigator>
+      <view class='discount-left'>
+        <image src='../img/215316razvv8090vee3gjh.jpg' ></image>
+          <view>
+            <text>[测试]捞王锅物料理全场8.5折\n</text>
+            <text>8.5折</text>
+          </view>
+      </view>
+      <view class='discount-right'>
+        <text>免费领</text>
+        <text>\n已领{{count.drawed}}</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+<!-- 大牌抢购 -->
+<view class='details-info'>
+  <view class='qiang-title'>
+     <image src='../img/shop_detail_qiang.png'></image> 
+    <text>大牌抢购</text>
+  </view>
+  <view class='qiang-info'>
+    <navigator>
+      <image src='../img/004814q46eg3ttteomtcg2.jpg' style="width:60px;height:60px;"></image>
+    <view class='qiang-content'>
+      <text>[测试]捞王锅料理套餐抢购\n</text>
+      <text>¥0.20</text>
+      <text>定金</text>
+      <text>￥150.00</text>
+    </view>
+    <text>已售{{count.saled}} ></text>
+    </navigator>
+  </view>
+  <view class='qiang-more'>
+    <navigator>
+      <text>查看更多</text>
+      <text class='iconfont icon-store-arrowdown'></text>
+    </navigator>
+  </view>
+</view>
+<!-- 详细信息-选项卡 -->
+<view class='details-tab'>
+  <view class="swiper-tab">  
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">介绍</view>  
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">优惠</view>  
+      <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">招聘</view> 
+      <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">点评</view>   
+  </view>  
+  <view class='swiper-container'>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
+      <!-- tab介绍 -->  
+      <swiper-item>  
+        <view class='pro-intr swiper-slide'>
+          <text>{{pIntro.pTitle}}\n</text>
+          <text>{{pIntro.picInstr1}}\n</text>
+          <image src='../{{pIntro.href1}}' mode="widthFix"></image>
+          <text>\n{{pIntro.picInstr2}}\n</text>
+          <image src='../{{pIntro.href2}}' mode="widthFix"></image>
+        </view>  
+      </swiper-item>  
+      <!-- tab优惠 -->  
+      <swiper-item>  
+        <view class='discount-box swiper-slide'>
+          <view class='discount-avatar'>
+            <image src='../{{pDiscount.avatar}}'></image>
+          </view>
+          <view class='discount-content'>
+            <view class='discount-content-header'>
+              <text>顶</text>
+              <text>优惠信息</text>
+              <text>{{pDiscount.uname}}</text>
+              <view class='btn-details'>
+                <image src='../img/icon-show.png'></image>
+                <text>详情</text>
+              </view>
+            </view>
+            <view class='discount-content-catal'>
+              <text>类别:</text>
+              <text>{{pDiscount.catagory}}</text>
+            </view>
+            <view class='discount-content-area'>
+              <text>地区:</text>
+              <text>{{pDiscount.area}}</text>
+            </view>
+            <view class='discount-content-container'>
+              <view class='discount-content-text'>
+                <text>{{pDiscount.content}}</text>
+              </view>
+              <navigator>全文</navigator>
+            </view>
+            <image src='../{{pDiscount.image}}' style='width:100px;height:100px'></image>
+            <view class='discount-comment-location'>
+              <image src='../{{pDiscount.image}}' style='width:48px;height:48px;'></image>
+              <view class='recommend-location'>
+                <text>{{pDiscount.localStore}}\n</text>
+                <text class='iconfont icon-store-location' style='font-size:1em;color:#555'>{{pDiscount.localAddress}}</text>
+              </view>
+            </view>
+            <view class='discount-comment-count'>
+              <view>
+                <text>{{pComment.cllcount}}人浏览、</text>
+                <text>{{pComment.czfcount}}次扩散、</text>
+                <text>{{pComment.cdate}}</text>
+              </view>
+              <navigator>
+                <text class='iconfont icon-discount-msg'></text>
+              </navigator>
+            </view>
+            <view class='comment-details' >
+              <view class='comment-bar'></view>
+               <view class='comment-header'> 
+                 <text>{{pComment.zancount}}人点赞</text> 
+                <image wx:for="{{pcommentdetails}}" wx:key="{{index}}" src='{{item.avatar}}'></image>
+               </view>
+               <view class='comment-section' wx:for="{{pcommentdetails}}" wx:key="{{index}}" style='margin'>
+                  <text >{{item.cname}}:</text>
+                  <text>{{item.ccontent}}</text>
+               </view> 
+               <navigator>查看全部26条评论</navigator>
+            </view>
+          </view>
+        </view>  
+      </swiper-item>  
+      <!-- tab招聘 -->  
+      <swiper-item>  
+        <view>我是招聘</view>  
+      </swiper-item> 
+      <!-- tab点评 -->  
+      <swiper-item>  
+        <view class='dianping-main swiper-slide-active'>
+          <view class='dianping-header'>
+            <text>全部评论</text>
+            <navigator>评论</navigator>
+          </view>
+          <view class='dianping-content-container' >
+          <view class='dianping-content' wx:for="{{pcommentdetails}}" wx:key="{{index}}">
+            <view class='dianping-avatar'>
+              <image src='{{item.avatar}}'></image>
+            </view>
+            <view class='dianping-right'>
+              <view class='dianping-right-row1'>
+                <text>{{item.cname}}</text>
+                <text>{{item.cdate}}</text>
+                <navigator class='iconfont icon-discount-msg2'></navigator>
+              </view>
+              <view class='dianping-right-row2'>
+                <text>{{item.ccontent}}</text>
+              </view>
+              <view class='dianping-right-upimg'>
+                <image src='{{item.pimage}}' style='width:75px;height:75px'></image>
+              </view>
+              <view></view>
+            </view>
+          </view>
+          </view>
+        </view>  
+      </swiper-item> 
+  </swiper> 
+  </view>   
+</view>

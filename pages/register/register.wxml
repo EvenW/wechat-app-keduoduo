@@ -1,0 +1,33 @@
+<!--pages/register/register.wxml-->
+<!-- 最外层容器 -->
+<view class='register-container'>
+  <view class='register-top'>
+    <view class='input-row'>
+      <label>手机号</label>
+      <input bindinput='inputPhoneNum' placeholder='请输入手机号' type='number' maxlength='11'></input>
+    </view>
+    <view class='input-row'>
+      <label>昵称</label>
+      <input placeholder='请输入昵称'></input>
+    </view>
+    <view class='input-row'>
+      <label>密码</label>
+      <input placeholder='请输入密码'></input>
+    </view>
+    <view class='input-row input-vcode'>
+      <label>手机验证</label>
+      <input placeholder='请输入手机验证码'></input>
+      <text wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">获取验证码</text>
+       <text wx:if="{{alreadySend}}" class="sendMsg" bindtap="sendMsg">{{second+"s"}}</text>
+    </view>
+  </view>
+  <view class='fwtk-check'>
+    <label>
+      <checkbox checked>阅读并同意</checkbox>
+      <text style='vertical-align:middle'>《相关条款》</text>
+    </label>
+  </view>
+  <view class='register-bottom'>
+    <button>注册</button>
+  </view>
+</view>

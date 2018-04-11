@@ -1,0 +1,23 @@
+<!--pages/login/login.wxml-->
+<!-- 最外部容器 -->
+<view class='login-container'>
+  <view class='login-form'>
+    <!-- logo -->
+    <view class='login-icon'>
+      <image src='../img/logo.png'></image>
+    </view>
+    <!-- 表单部分 -->
+    <view class='login-inputphone login-input'>
+      <input name='uphone' placeholder='请输入手机号' type="number" maxlength="11" bindinput="inputPhoneNum" auto-focus></input>
+    </view>
+    <view class='login-inputpwd login-input'>
+      <input name='upwd' type="number" bindinput="addCode" placeholder='请输入验证码'></input>
+      <text wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">获取短信验证码</text>
+       <text wx:if="{{alreadySend}}" class="sendMsg" bindtap="sendMsg">{{second+"s"}}</text> 
+    </view>
+    <view class='login-btn-group'>
+      <button type="{{buttonType}}" disabled="{{disabled}}" bindtap="onSubmit">登 录</button>
+      <navigator open-type="redirect" hover-class="none" bindtap='gotoreg'>注 册</navigator>
+    </view>
+  </view>
+</view>

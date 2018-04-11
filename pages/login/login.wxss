@@ -1,0 +1,70 @@
+/* pages/login/login.wxss */
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color: white;  
+} 
+/* 最外层容器 */
+.login-container{
+  padding:2em;
+  box-sizing: border-box;
+}
+.login-form{
+  width:100%;
+  padding:1em;
+  box-sizing: border-box;
+}
+/* logo */
+.login-icon{
+  width:80%;
+  margin:0 auto;
+  padding:1em 0;
+}
+.login-icon>image{
+  display: block;
+  margin:0 auto;
+  width:140px;
+  height:70px;
+}
+/* 表单部分 */
+.login-form>.login-input{
+  border:1px solid #dce3e7;
+  border-radius: 0.2em;
+  margin-bottom: 1em;
+  padding-left:2.5em;
+  font-size:1.2em;
+  background: #f3f6f8;
+}
+.login-input>input{
+  height: 3em;
+  width:100%;
+}
+.login-inputpwd{
+  position: relative;
+}
+.sendMsg{
+  display: block;
+  color:#f5833b;
+  font-size: 0.8em;
+  position: absolute;
+  right:0;
+  top:0;
+  padding: 0 1em;
+  height: 100%;
+  line-height: 100%;
+  margin-top:17px;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.login-btn-group>button{
+  margin-top:2em;
+  width:100%;
+  background: #f5833b;
+  color:#fff;
+  margin-bottom: 1em;
+}
+.login-btn-group>navigator{
+  color:#f5833b;
+  text-align: center;
+  font-size: 1.3em;
+}
